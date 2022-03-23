@@ -1,0 +1,46 @@
+﻿<Window x:Class="_17.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_17"
+        mc:Ignorable="d"
+        Title="Блокнот" Height="398" Width="760.5"  WindowStartupLocation="CenterScreen" Closing="Windows_Closing" Icon="Picture\Notepad_23093 (1).ico" >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="423*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="526" Background="White" Grid.RowSpan="2">
+            <MenuItem Header="Файл" Height="22">
+                <MenuItem  Header="Создать" Click="Create_Click" />
+                <MenuItem  Header="Открыть..." Click="Open_Click" />
+                <MenuItem  Header="Сохранить" Click="Save_Click" />
+                <MenuItem  Header="Сохранить как..." Click="SaveAs_Click" />
+                <Separator />
+                <MenuItem  Header="Выход" Click="Exit_Click" />
+            </MenuItem>
+            <MenuItem  Header="Правка">
+                <MenuItem  Header="Отменить" Click="Cancel_Click"  />
+                <Separator />
+                <MenuItem  Header="Вырезать" Click="Cut_Click"/>
+                <MenuItem  Header="Копировать" Click="Copy_Click"/>
+                <MenuItem  Header="Вставить" Click="Insert_Click"/>
+                <MenuItem  Header="Удалить" Click="Delete_Click"/>
+                <Separator />
+                <MenuItem  Header="Выделить всё" Click="SelectAll_Click"/>
+                <Separator />
+                <MenuItem  Header="Переставить строки" Click="RearrangeLines_Click"/>
+            </MenuItem>
+            <MenuItem  Header="Справка" >
+                <MenuItem Header="О программе" Click="Information_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid HorizontalAlignment="Stretch"  Margin="0,2,0,-4"   Grid.Row="1" Grid.RowSpan="2">
+            <RichTextBox x:Name="fieldEdit" Block.LineHeight="1"  HorizontalAlignment="Stretch"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"  TextChanged="fieldEdit_TextChanged"/>
+        </Grid>
+    </Grid>
+</Window>

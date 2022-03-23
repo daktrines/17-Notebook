@@ -1,0 +1,38 @@
+﻿<Window x:Class="_17.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_17"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="474" Width="534.5" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="423*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+
+        <Menu HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="526" Background="White" Grid.RowSpan="2">
+            <MenuItem Header="Файл" Click="Exit_Click" Height="22">
+                <MenuItem  Header="Создать" Click="Create_Click" />
+                <MenuItem  Header="Открыть" />
+                <MenuItem  Header="Сохранить" Click="Save_Click" />
+                <Separator />
+                <MenuItem  Header="Выход" />
+            </MenuItem>
+            <MenuItem  Header="Правка"/>
+            <MenuItem  Header="Формат"/>
+            <MenuItem  Header="Вид"/>
+            <MenuItem  Header="Справка" Click="Information_Click">
+                <MenuItem Header="О программе" Click="Information_Click" />
+            </MenuItem>
+        </Menu>
+        <Grid HorizontalAlignment="Stretch"  Margin="0,2,0,-4"   Grid.Row="1" Grid.RowSpan="2">
+            <RichTextBox x:Name="fieldEdit" HorizontalAlignment="Stretch" Margin="0,0,0,10" TextChanged="fieldEdit_TextChanged"/>
+
+        </Grid>
+
+    </Grid>
+</Window>
