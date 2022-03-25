@@ -40,6 +40,7 @@ namespace _17
                 if (rezult == MessageBoxResult.Yes)
                     if (bloknot.ASaveBloknot() == false) return;
                 if (rezult == MessageBoxResult.Cancel) return;
+                
             }
             else Close();
         }
@@ -47,7 +48,7 @@ namespace _17
         //Кнопка "Сохранить"
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            bloknot.ASaveBloknot();
+            if (bloknot.ASaveBloknot() == false) return;
             this.Title = bloknot.NameFile;//очищаем заголовок
         }
 
@@ -97,14 +98,14 @@ namespace _17
                     if (bloknot.ASaveBloknot() == false) return;
                 if (rezult == MessageBoxResult.Cancel) return;
             }
-            bloknot.Open();
+             if(bloknot.Open() == false) return;
             this.Title = bloknot.NameFile;
         }
 
         //Кнопка "Сохранить как"
         private void SaveAs_Click(object sender, RoutedEventArgs e)
         {
-            bloknot.ASaveASBloknot();
+            if (bloknot.ASaveASBloknot() == false) return;
             this.Title  = bloknot.NameFile;
         }
 
@@ -151,6 +152,12 @@ namespace _17
             Task task = new Task(fieldEdit);
             task.Owner = this; //Получение ссылки на родителя
             task.ShowDialog();//Открываем диалоговое окно
+        }
+
+        //Кнопка "Очистить текст"
+        private void ClearText_Click(object sender, RoutedEventArgs e)
+        {
+            fieldEdit.Document.Blocks.Clear(); //очищаем блокнот
         }
     }
 }

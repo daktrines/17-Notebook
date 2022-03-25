@@ -33,6 +33,7 @@
                 <Separator />
                 <MenuItem  Header="Выделить всё" Click="SelectAll_Click"/>
                 <Separator />
+                <MenuItem  Header="Очистить текст" Click="ClearText_Click"/>
                 <MenuItem  Header="Переставить строки" Click="RearrangeLines_Click"/>
             </MenuItem>
             <MenuItem  Header="Справка" >

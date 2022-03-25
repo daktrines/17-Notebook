@@ -33,7 +33,7 @@ namespace _17
             //создаем элемент диалога и настраиваем его
             SaveFileDialog save = new SaveFileDialog();
             save.DefaultExt = "rtf";
-            save.Filter = "Текстовый файл (*.rtf)|*.rtf|Текстовый файл (*.txt)|*.txt|Все файлы(*.*)|*.*";
+            save.Filter = "Текстовый файл (*.rtf)|*.rtf|Все файлы(*.*)|*.*";
             save.Title = "Сохранение файла";
             //если имя нет
             if (nameFile == "")
@@ -104,25 +104,20 @@ namespace _17
             Modified = false;//сброс признака редактирования
         }
          
-        public void Open()
+        public bool Open()
         {
             OpenFileDialog open = new OpenFileDialog();
             open.DefaultExt = "rtf";
             open.Filter = "Текстовый файл (*.rtf)|*.rtf|Текстовый файл (*.txt)|*.txt|Все файлы(*.*)|*.*";
             open.Title = "Открытие файла";
 
-            if (open.ShowDialog() == true)
-            {
-                nameFile = open.FileName;
-                TextRange doc = new TextRange(fieldEdit.Document.ContentStart, fieldEdit.Document.ContentEnd);
-                using (FileStream fs = new FileStream(open.FileName, FileMode.Open))
-                {
-                    if (Path.GetExtension(open.FileName).ToLower() == ".rtf")
-                        doc.Load(fs, DataFormats.Rtf);
-                    else if (Path.GetExtension(open.FileName).ToLower() == ".txt")
-                        doc.Load(fs, DataFormats.Text);
-                }
-            } 
+            if (open.ShowDialog() == true) nameFile = open.FileName;
+
+            TextRange doc = new TextRange(fieldEdit.Document.ContentStart, fieldEdit.Document.ContentEnd);
+            FileStream fs = File.Open(open.FileName, FileMode.Open);
+            doc.Load(fs, DataFormats.Rtf);
+            fs.Close();
+            return true;
         }
        
     }
