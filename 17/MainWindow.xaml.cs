@@ -38,7 +38,10 @@ namespace _17
                 MessageBoxResult rezult;
                 rezult = MessageBox.Show("Вы хотите сохранить изменения в файле?", "Выход из программы", MessageBoxButton.YesNoCancel);
                 if (rezult == MessageBoxResult.Yes)
+                {
                     if (bloknot.ASaveBloknot() == false) return;
+                    Close();
+                }
                 if (rezult == MessageBoxResult.Cancel) return;
                 
             }
