@@ -22,7 +22,6 @@ namespace _17
     public partial class MainWindow : Window
     {
         Bloknot bloknot;
-        string nameFile = "Безымянный";
 
         public MainWindow()
         {
