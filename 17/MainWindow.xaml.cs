@@ -71,7 +71,7 @@ namespace _17
             if (bloknot.Modified == true)
             {
                 MessageBoxResult rezult;
-                rezult = MessageBox.Show("Вы хотите сохранить изменения в файле?", "Выход из программы", MessageBoxButton.YesNoCancel);
+                rezult = MessageBox.Show("Вы хотите сохранить изменения в этом файле?", "Выход из программы", MessageBoxButton.YesNoCancel);
                 if (rezult == MessageBoxResult.Yes)
                     if (bloknot.ASaveBloknot() == false) return;
                 if (rezult == MessageBoxResult.Cancel) e.Cancel = true;
@@ -84,7 +84,7 @@ namespace _17
             if (bloknot.Modified == true)
             {
                 MessageBoxResult rezult;
-                rezult = MessageBox.Show("Вы хотите сохранить изменения в файле?", "Блокнот", MessageBoxButton.YesNoCancel);
+                rezult = MessageBox.Show("Вы хотите сохранить изменения в этом файле?", "Блокнот", MessageBoxButton.YesNoCancel);
                 if (rezult == MessageBoxResult.Yes)
                     if (bloknot.ASaveBloknot() == false) return;
                 if (rezult == MessageBoxResult.Cancel) return;

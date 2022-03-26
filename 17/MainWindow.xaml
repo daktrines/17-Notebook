@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17"
         mc:Ignorable="d"
-        Title="Блокнот" Height="398" Width="760.5"  WindowStartupLocation="CenterScreen" Closing="Windows_Closing" Icon="Picture\Notepad_23093 (1).ico" >
+        Title="Безымянный - Блокнот" Height="398" Width="760.5"  WindowStartupLocation="CenterScreen" Closing="Windows_Closing" Icon="Picture\Notepad_23093 (1).ico" >
     <Grid>
 
         <Grid.RowDefinitions>
@@ -41,7 +41,18 @@
             </MenuItem>
         </Menu>
         <Grid HorizontalAlignment="Stretch"  Margin="0,2,0,-4"   Grid.Row="1" Grid.RowSpan="2">
-            <RichTextBox x:Name="fieldEdit" Block.LineHeight="1"  HorizontalAlignment="Stretch"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"  TextChanged="fieldEdit_TextChanged"/>
+            <RichTextBox x:Name="fieldEdit" Block.LineHeight="1"  HorizontalAlignment="Stretch"  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"  TextChanged="fieldEdit_TextChanged">
+                <RichTextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem  Command="Undo"/>
+                        <Separator />
+                        <MenuItem  Command="Cut"/>
+                        <MenuItem  Command="Copy"/>
+                        <MenuItem  Command="Paste"/>
+                        <MenuItem  Header="Удалить" Click="Delete_Click"/>
+                    </ContextMenu>
+                </RichTextBox.ContextMenu>
+            </RichTextBox>
         </Grid>
     </Grid>
 </Window>

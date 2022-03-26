@@ -14,6 +14,7 @@ namespace _17
     class Bloknot
     {
         string nameFile; //Имя файла
+        private string fullName; //Имя файла
         RichTextBox fieldEdit; //поле редактирования
         public bool Modified { get; set; } //признак редактирования
         public string NameFile //имя файла
@@ -40,8 +41,11 @@ namespace _17
                 //запрашиваем имя файла
                 //если имя файла введено
                 if (save.ShowDialog() == true)
-                    nameFile = save.FileName; //запомним имя файла
-                                            //иначе прерываем модуль (отмена сохранения)
+                {
+                    nameFile = save.SafeFileName;//запомним имя файла
+                    fullName = save.FileName;
+                }
+                //иначе прерываем модуль (отмена сохранения)
                 else return false; //признак успешного сохранения false
             //сохраняем блокнот в файл
             TextRange doc = new TextRange(fieldEdit.Document.ContentStart,
@@ -67,8 +71,11 @@ namespace _17
                 //запрашиваем имя файла
                 //если имя файла введено
                 if (save.ShowDialog() == true)
-                    nameFile = save.FileName; //запомним имя файла
-                                            //иначе прерываем модуль (отмена сохранения)
+                {
+                    nameFile = save.SafeFileName;//запомним имя файла
+                    fullName = save.FileName;
+                }   
+                 //иначе прерываем модуль (отмена сохранения)
                 else return false; //признак успешного сохранения false
             //сохраняем блокнот в файл
             TextRange doc = new TextRange(fieldEdit.Document.ContentStart,
@@ -88,7 +95,7 @@ namespace _17
             {//если документ редактировался
                 MessageBoxResult result;
                 //спросить о сохранении файла ДА/НЕТ/ОТМЕНА
-                result = MessageBox.Show("Вы хотите сохранить изменения в файле?",
+                result = MessageBox.Show("Вы хотите сохранить изменения в этом файле?",
                     "Блокнот", MessageBoxButton.YesNoCancel);
                 if (result == MessageBoxResult.Yes)//если ДА сохраняем файл 
                     //вызываем модуль сохранения и если сохранение не прошло
@@ -111,7 +118,12 @@ namespace _17
             open.Filter = "Текстовый файл (*.rtf)|*.rtf|Текстовый файл (*.txt)|*.txt|Все файлы(*.*)|*.*";
             open.Title = "Открытие файла";
 
-            if (open.ShowDialog() == true) nameFile = open.FileName;
+            if (open.ShowDialog() == false)
+            {
+                return false;
+            }
+            nameFile = open.SafeFileName;
+            fullName = open.FileName;
 
             TextRange doc = new TextRange(fieldEdit.Document.ContentStart, fieldEdit.Document.ContentEnd);
             FileStream fs = File.Open(open.FileName, FileMode.Open);
