@@ -33,19 +33,7 @@ namespace _17
         //Кнопка "Выход"
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            if (bloknot.Modified == true)
-            {
-                MessageBoxResult rezult;
-                rezult = MessageBox.Show("Вы хотите сохранить изменения в файле?", "Выход из программы", MessageBoxButton.YesNoCancel);
-                if (rezult == MessageBoxResult.Yes)
-                {
-                    if (bloknot.ASaveBloknot() == false) return;
-                    Close();
-                }
-                if (rezult == MessageBoxResult.Cancel) return;
-                
-            }
-            else Close();
+            Close();
         }
 
         //Кнопка "Сохранить"
