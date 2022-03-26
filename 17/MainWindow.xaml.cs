@@ -22,6 +22,7 @@ namespace _17
     public partial class MainWindow : Window
     {
         Bloknot bloknot;
+        string nameFile = "Безымянный";
 
         public MainWindow()
         {
@@ -100,40 +101,10 @@ namespace _17
             this.Title  = bloknot.NameFile;
         }
 
-        //Кнопка "Отменить"
-        private void Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            fieldEdit.Undo();
-        }
-
-        //Кнопка "Вырезать"
-        private void Cut_Click(object sender, RoutedEventArgs e)
-        {
-            fieldEdit.Cut();
-        }
-
-        //Кнопка "Копировать"
-        private void Copy_Click(object sender, RoutedEventArgs e)
-        {
-            fieldEdit.Copy();
-        }
-
-        //Копка "Вставить"
-        private void Insert_Click(object sender, RoutedEventArgs e)
-        {
-            fieldEdit.Paste();
-        }
-
         //Кнопка "Удалить"
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             fieldEdit.Selection.Text = "";
-        }
-
-        //Кнопка "Выделить все"
-        private void SelectAll_Click(object sender, RoutedEventArgs e)
-        {
-            fieldEdit.SelectAll();
         }
 
         //Кнопка "Переставить строки"

@@ -24,14 +24,14 @@
                 <MenuItem  Header="Выход" Click="Exit_Click" />
             </MenuItem>
             <MenuItem  Header="Правка">
-                <MenuItem  Header="Отменить" Click="Cancel_Click"  />
+                <MenuItem  Command="Undo"/>
                 <Separator />
-                <MenuItem  Header="Вырезать" Click="Cut_Click"/>
-                <MenuItem  Header="Копировать" Click="Copy_Click"/>
-                <MenuItem  Header="Вставить" Click="Insert_Click"/>
+                <MenuItem  Command="Cut"/>
+                <MenuItem  Command="Copy"/>
+                <MenuItem  Command="Paste"/>
                 <MenuItem  Header="Удалить" Click="Delete_Click"/>
                 <Separator />
-                <MenuItem  Header="Выделить всё" Click="SelectAll_Click"/>
+                <MenuItem   Command="SelectAll"/>
                 <Separator />
                 <MenuItem  Header="Очистить текст" Click="ClearText_Click"/>
                 <MenuItem  Header="Переставить строки" Click="RearrangeLines_Click"/>
