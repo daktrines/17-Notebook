@@ -50,7 +50,7 @@ namespace _17
             //сохраняем блокнот в файл
             TextRange doc = new TextRange(fieldEdit.Document.ContentStart,
                 fieldEdit.Document.ContentEnd);
-            FileStream fs = File.Create(nameFile);
+            FileStream fs = File.Create(fullName);
             doc.Save(fs, DataFormats.Rtf);
             fs.Close();
             Modified = false; //сбрасываем признак редактирования

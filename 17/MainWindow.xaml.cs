@@ -47,7 +47,7 @@ namespace _17
         private void Create_Click(object sender, RoutedEventArgs e)
         {
             bloknot.Create();
-            this.Title = bloknot.NameFile;//очищаем заголовок
+            this.Title = "Безымянный - Блокнот";//очищаем заголовок
         }
 
         private void fieldEdit_TextChanged(object sender, TextChangedEventArgs e)
